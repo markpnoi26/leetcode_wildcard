@@ -42,12 +42,17 @@ const countBitsN = function(num) {
             bits_array[i] = 1;
             last_power_visited = power_to_seek;
             power_to_seek *= 2;
-            console.log("i === power_to_seek", i, bits_array[i])
-        }
-    	else {
-            
+            console.log("index:", i, bits_array[i])
+        } else {
             bits_array[i] = bits_array[last_power_visited] + bits_array[i-last_power_visited];
-            console.log("not powered", bits_array[last_power_visited], bits_array[i-last_power_visited], bits_array[i] )
+            console.log(
+                "index:", i, 
+                "LPV:", last_power_visited,
+                "i - LPV:", i - last_power_visited,)
+            console.log(
+                "bits_array[LPV]:", bits_array[last_power_visited], 
+                "bits_array[i - LVP]:", bits_array[i-last_power_visited], 
+                "bits_array[i]:", bits_array[i] )
         }    	
     }
     
@@ -64,4 +69,4 @@ const countBitsN = function(num) {
 
 // console.log(countBits(5),[0,1,1,2,1,2])
 // console.log(countBits(30))
-console.log(countBitsN(31))
+console.log(countBitsN(21))
